@@ -1,0 +1,70 @@
+<div class="transferencia-viewport">
+  <!-- Cabecera de transferencia -->
+  <header class="header-section" style="background-image: url('img/header.jpg');">
+    <div class="header-nav">
+      <button class="back-button" (click)="volverAHome()" aria-label="Volver al inicio">
+        <img ngSrc="img/icon_Back.png" width="24" height="24" alt="Atrás" priority>
+      </button>
+      <h1 class="header-title">Transferencia a</h1>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main class="content-section">
+    <!-- Sección de Contactos Frecuentes -->
+    <section class="frecuentes-section">
+      <h2 class="section-title">Contactos Frecuentes</h2>
+      
+      <div class="frecuentes-scroll-container">
+        @if (contactosFrecuentes().length > 0) {
+          <div class="frecuentes-row">
+            @for (contacto of contactosFrecuentes(); track contacto.id) {
+              <div class="frecuente-item" (click)="seleccionarContacto(contacto)" role="button" tabindex="0">
+                <div class="avatar-wrapper">
+                  <img [ngSrc]="contacto.imagen" width="56" height="56" [alt]="contacto.nombre" class="frecuente-avatar">
+                </div>
+                <span class="frecuente-name">{{ contacto.nombre }}</span>
+              </div>
+            }
+          </div>
+        } @else {
+          <p class="empty-state-text">No hay contactos frecuentes registrados.</p>
+        }
+      </div>
+    </section>
+
+    <!-- Sección de Lista General de Contactos -->
+    <section class="contactos-section">
+      <div class="section-header">
+        <h2 class="section-title">Todos los Contactos</h2>
+        <button class="add-contact-btn" (click)="irANuevoContacto()">
+          <span class="add-icon">+</span> Añadir
+        </button>
+      </div>
+
+      <div class="contactos-list">
+        @if (contactosNormales().length > 0) {
+          @for (contacto of contactosNormales(); track contacto.id) {
+            <div class="contacto-item" (click)="seleccionarContacto(contacto)" role="button" tabindex="0">
+              <div class="contacto-left">
+                <img [ngSrc]="contacto.imagen" width="44" height="44" [alt]="contacto.nombre" class="contacto-avatar">
+                <div class="contacto-info">
+                  <span class="contacto-name">{{ contacto.nombre }}</span>
+                  <span class="contacto-digits">Cta. Clabe •••• {{ contacto.digitos.slice(-4) }}</span>
+                </div>
+              </div>
+              <button class="delete-button" (click)="eliminarContacto($event, contacto.id)" aria-label="Eliminar contacto">
+                <img ngSrc="img/icon_Papelera.png" width="20" height="20" alt="Eliminar">
+              </button>
+            </div>
+          }
+        } @else {
+          <div class="empty-list-container">
+            <p class="empty-state-text">No hay contactos agregados.</p>
+            <button class="add-contact-link" (click)="irANuevoContacto()">Crea un nuevo contacto ahora</button>
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+</div>

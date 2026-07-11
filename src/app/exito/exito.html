@@ -1,0 +1,61 @@
+<div class="exito-viewport">
+  <main class="content-section">
+    <!-- Icono de éxito animado -->
+    <div class="success-header">
+      <div class="check-circle">
+        <img ngSrc="img/icon_Check.png" width="48" height="48" alt="Éxito" priority>
+      </div>
+      <h1 class="success-title">¡Envío exitoso!</h1>
+      <p class="success-subtitle">Tu transferencia se ha realizado con éxito.</p>
+    </div>
+
+    <!-- Comprobante -->
+    @if (estado(); as data) {
+      <div class="receipt-card">
+        <div class="amount-section">
+          <span class="amount-label">Monto enviado</span>
+          <h2 class="amount-value">${{ data.monto | number:'1.2-2' }} <span class="mxn">MXN</span></h2>
+        </div>
+
+        <div class="receipt-details">
+          <div class="detail-item">
+            <span class="label">Para</span>
+            <span class="value">{{ data.contacto?.nombre }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Cuenta destino</span>
+            <span class="value">•••• {{ data.contacto?.digitos?.slice(-4) }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Desde</span>
+            <span class="value">Cuenta {{ data.cuentaOrigen }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Fecha y hora</span>
+            <span class="value">{{ fechaOperacion | date:'dd MMM yyyy, HH:mm' }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Folio de operación</span>
+            <span class="value">#{{ folio }}</span>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Acciones Finales -->
+    <div class="actions-wrapper">
+      <button class="share-btn" (click)="compartir()">
+        <img ngSrc="img/icon_QR.png" width="20" height="20" alt="QR">
+        Compartir comprobante
+      </button>
+      
+      <button class="home-btn" (click)="irAHome()">
+        Volver al inicio
+      </button>
+    </div>
+  </main>
+</div>

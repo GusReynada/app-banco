@@ -1,0 +1,73 @@
+<div class="nuevo-contacto-viewport">
+  <!-- Cabecera de Nuevo Contacto -->
+  <header class="header-section" style="background-image: url('img/header.jpg');">
+    <div class="header-nav">
+      <button class="back-button" (click)="volverATransferencia()" aria-label="Volver">
+        <img ngSrc="img/icon_Back.png" width="24" height="24" alt="Atrás" priority>
+      </button>
+      <h1 class="header-title">Nuevo contacto</h1>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main class="content-section">
+    <div class="form-container">
+      <p class="form-instruction">Ingresa los datos para registrar el contacto y transferir.</p>
+
+      <form [formGroup]="contactoForm" (ngSubmit)="guardarYContinuar()" class="contacto-form">
+        <!-- Campo Nombre -->
+        <div class="form-field">
+          <label for="nombre" class="field-label">Nombre del contacto</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="nombre" 
+              formControlName="nombre" 
+              placeholder="Ej. Juan Pérez"
+              class="form-input"
+              [class.input-error]="contactoForm.get('nombre')?.invalid && contactoForm.get('nombre')?.touched"
+            >
+          </div>
+          @if (contactoForm.get('nombre')?.invalid && contactoForm.get('nombre')?.touched) {
+            <span class="error-text">El nombre es obligatorio (mín. 3 caracteres).</span>
+          }
+        </div>
+
+        <!-- Campo Número de Cuenta / Tarjeta -->
+        <div class="form-field">
+          <label for="numeroCuenta" class="field-label">Número de tarjeta o cuenta</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="numeroCuenta" 
+              formControlName="numeroCuenta" 
+              placeholder="0000 0000 0000 0000"
+              maxlength="19"
+              class="form-input"
+              [style.padding-right]="tarjetaEmisor() !== 'Otros' ? '54px' : '16px'"
+              [class.input-error]="contactoForm.get('numeroCuenta')?.invalid && contactoForm.get('numeroCuenta')?.touched"
+            >
+            <!-- Badge Flotante del Emisor de Tarjeta -->
+            <div class="card-brand-badge" [class.visa]="tarjetaEmisor() === 'Visa'" [class.mastercard]="tarjetaEmisor() === 'Mastercard'">
+              @if (tarjetaEmisor() === 'Visa') {
+                <span>VISA</span>
+              } @else if (tarjetaEmisor() === 'Mastercard') {
+                <span>MC</span>
+              }
+            </div>
+          </div>
+          @if (contactoForm.get('numeroCuenta')?.invalid && contactoForm.get('numeroCuenta')?.touched) {
+            <span class="error-text">Ingresa los 16 dígitos de la tarjeta/cuenta.</span>
+          }
+        </div>
+
+        <!-- Botón de Acción -->
+        <div class="actions-wrapper">
+          <button type="submit" class="continue-btn" [disabled]="contactoForm.invalid">
+            Continuar
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>

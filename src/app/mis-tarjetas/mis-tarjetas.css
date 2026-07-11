@@ -1,0 +1,360 @@
+.tarjetas-viewport {
+  width: 100%;
+  height: 100%;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.header-section {
+  background-size: cover;
+  background-position: center;
+  padding: 40px 16px 20px 16px;
+  color: #ffffff;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.header-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+.content-section {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 16px;
+  box-sizing: border-box;
+}
+
+.deck-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sub-section-title {
+  font-size: 15px;
+  color: #64748b;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ================= 3D CARD CONTAINER LAYOUT ================= */
+.card-3d-wrapper {
+  width: 100%;
+  height: 200px;
+  perspective: 1000px; /* Habilitar perspectiva 3D */
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d; /* Requerido para herencia 3D */
+}
+
+/* Al estar volteado, rotar el contenedor principal */
+.card-3d-wrapper.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Ocultar cara trasera cuando está oculta */
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Estilos de gradiente */
+.debito-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.credito-bg {
+  background: linear-gradient(135deg, #581c87 0%, #1e1b4b 100%);
+}
+
+/* CARA FRONTAL */
+.card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* CARA TRASERA */
+.card-back {
+  transform: rotateY(180deg); /* Pre-volteado */
+}
+
+/* ================= DETALLES DE TARJETA FRONTAL ================= */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bank-name {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.card-network {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gold-badge {
+  background: linear-gradient(90deg, #f89e24, #fcd34d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-chip {
+  font-size: 24px;
+  margin-top: 10px;
+  transform: rotate(-90deg);
+  display: inline-block;
+  color: #fbbf24;
+}
+
+.card-number {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 15px 0 10px 0;
+  font-family: Courier, monospace;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-lbl {
+  font-size: 9px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.footer-val {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ================= DETALLES DE TARJETA TRASERA ================= */
+.card-magnetic-strip {
+  background-color: #000000;
+  height: 40px;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-top: 5px;
+}
+
+.card-signature-bar {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #000000;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+.cvv-box {
+  width: 50px;
+  text-align: right;
+}
+
+.cvv-box .footer-lbl {
+  color: #64748b;
+  margin: 0;
+}
+
+.cvv-val {
+  font-family: Courier, monospace;
+  font-weight: 700;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.back-footer {
+  font-size: 8px;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+/* ================= FILTRO MODO APAGADO ================= */
+.frozen-filter {
+  filter: saturate(0.2) brightness(0.6);
+}
+
+.frozen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.lock-icon {
+  font-size: 32px;
+  margin-bottom: 6px;
+  animation: bounce 2s infinite;
+}
+
+.lock-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ================= CONTROLLER SWITCHES ================= */
+.card-controls {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.02);
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.control-subtitle {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
+}
+
+input:checked + .slider {
+  background-color: #6f5af6;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.mt-4 {
+  margin-top: 24px;
+}

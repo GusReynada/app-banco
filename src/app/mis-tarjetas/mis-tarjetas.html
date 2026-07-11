@@ -1,0 +1,150 @@
+<div class="tarjetas-viewport">
+  <!-- Cabecera -->
+  <header class="header-section" style="background-image: url('img/header.jpg');">
+    <div class="header-nav">
+      <button class="back-button" (click)="volver()" aria-label="Volver">
+        <img ngSrc="img/icon_Back.png" width="24" height="24" alt="Atrás" priority>
+      </button>
+      <h1 class="header-title">Mis Tarjetas</h1>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main class="content-section">
+    <div class="deck-container">
+      
+      <!-- ================= TARJETA DE DÉBITO ================= -->
+      <div class="card-section-wrapper">
+        <h2 class="sub-section-title">Tarjeta de Débito</h2>
+        
+        <!-- Elemento Volteable 3D -->
+        <div class="card-3d-wrapper" [class.flipped]="debitoFlipped()">
+          <div class="card-inner" (click)="toggleFlipDebito()">
+            
+            <!-- CARA FRONTAL -->
+            <div class="card-face card-front debito-bg" [class.frozen-filter]="debitoCongelada()">
+              @if (debitoCongelada()) {
+                <div class="frozen-overlay">
+                  <span class="lock-icon">🔒</span>
+                  <span class="lock-label">Temporalmente Apagada</span>
+                </div>
+              }
+              <div class="card-header">
+                <span class="bank-name">BancoPremium</span>
+                <span class="card-network">VISA</span>
+              </div>
+              <div class="card-chip">⚡</div>
+              <div class="card-number">4556  8901  2345  4321</div>
+              <div class="card-footer">
+                <div class="card-holder">
+                  <span class="footer-lbl">TITULAR</span>
+                  <span class="footer-val">JORGE GONZALEZ</span>
+                </div>
+                <div class="card-expiry">
+                  <span class="footer-lbl">VENCE</span>
+                  <span class="footer-val">12 / 29</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARA TRASERA -->
+            <div class="card-face card-back debito-bg">
+              <div class="card-magnetic-strip"></div>
+              <div class="card-signature-bar">
+                <div class="cvv-box">
+                  <span class="footer-lbl">CVV</span>
+                  <span class="cvv-val">682</span>
+                </div>
+              </div>
+              <div class="back-footer">
+                <span class="back-text">Para servicio a clientes llame al 800 123 4567. Contrato sujeto a términos de servicio.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Controles de la Tarjeta -->
+        <div class="card-controls">
+          <div class="control-row">
+            <div class="control-info">
+              <span class="control-title">Apagar Tarjeta</span>
+              <span class="control-subtitle">Bloquea compras físicas y digitales</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" [checked]="debitoCongelada()" (change)="toggleCongelarDebito($event)">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TARJETA DE CRÉDITO ================= -->
+      <div class="card-section-wrapper mt-4">
+        <h2 class="sub-section-title">Tarjeta de Crédito</h2>
+        
+        <!-- Elemento Volteable 3D -->
+        <div class="card-3d-wrapper" [class.flipped]="creditoFlipped()">
+          <div class="card-inner" (click)="toggleFlipCredito()">
+            
+            <!-- CARA FRONTAL -->
+            <div class="card-face card-front credito-bg" [class.frozen-filter]="creditoCongelada()">
+              @if (creditoCongelada()) {
+                <div class="frozen-overlay">
+                  <span class="lock-icon">🔒</span>
+                  <span class="lock-label">Temporalmente Apagada</span>
+                </div>
+              }
+              <div class="card-header">
+                <span class="bank-name">BancoPremium</span>
+                <span class="card-network gold-badge">BLACK CUSTOM</span>
+              </div>
+              <div class="card-chip">⚡</div>
+              <div class="card-number">5412  7892  3456  9018</div>
+              <div class="card-footer">
+                <div class="card-holder">
+                  <span class="footer-lbl">TITULAR</span>
+                  <span class="footer-val">JORGE GONZALEZ</span>
+                </div>
+                <div class="card-expiry">
+                  <span class="footer-lbl">VENCE</span>
+                  <span class="footer-val">08 / 31</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARA TRASERA -->
+            <div class="card-face card-back credito-bg">
+              <div class="card-magnetic-strip"></div>
+              <div class="card-signature-bar">
+                <div class="cvv-box">
+                  <span class="footer-lbl">CVV</span>
+                  <span class="cvv-val">409</span>
+                </div>
+              </div>
+              <div class="back-footer">
+                <span class="back-text">Para aclaraciones comuníquese a la línea Oro. MasterCard Concierge disponible 24/7.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Controles de la Tarjeta Credito -->
+        <div class="card-controls">
+          <div class="control-row">
+            <div class="control-info">
+              <span class="control-title">Apagar Tarjeta</span>
+              <span class="control-subtitle">Bloquea consumos temporalmente</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" [checked]="creditoCongelada()" (change)="toggleCongelarCredito($event)">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

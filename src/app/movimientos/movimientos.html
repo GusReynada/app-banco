@@ -1,0 +1,49 @@
+<div class="movimientos-viewport">
+  <!-- Cabecera -->
+  <header class="header-section" style="background-image: url('img/header.jpg');">
+    <div class="header-nav">
+      <button class="back-button" (click)="volver()" aria-label="Volver">
+        <img ngSrc="img/icon_Back.png" width="24" height="24" alt="Atrás" priority>
+      </button>
+      <h1 class="header-title">Tus Movimientos</h1>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <!-- Feed de Movimientos -->
+  <main class="content-section">
+    @if (movimientos().length === 0) {
+      <div class="empty-state">
+        <p class="empty-text">No cuentas con movimientos de cuenta recientes.</p>
+      </div>
+    } @else {
+      <div class="timeline-container">
+        @for (mov of movimientos(); track mov.id) {
+          <div class="mov-card">
+            <!-- Icono lateral -->
+            <div class="mov-icon-bg" [class.ingreso-bg]="mov.tipo === 'ingreso'">
+              <img [ngSrc]="mov.logo" width="22" height="22" [alt]="mov.concepto">
+            </div>
+            
+            <!-- Detalles del concepto -->
+            <div class="mov-details">
+              <span class="mov-concept">{{ mov.concepto }}</span>
+              <div class="mov-meta">
+                <span class="mov-date">{{ mov.fecha | date:'dd MMM yyyy, h:mm a' }}</span>
+                <span class="mov-account-type">• {{ mov.tipoCuenta }}</span>
+              </div>
+              <span class="mov-folio">Folio: {{ mov.folio }}</span>
+            </div>
+
+            <!-- Cantidad monetaria -->
+            <div class="mov-amount-section">
+              <span class="mov-amount" [class.ingreso]="mov.tipo === 'ingreso'" [class.egreso]="mov.tipo === 'egreso'">
+                {{ mov.tipo === 'ingreso' ? '+' : '-' }}{{ mov.monto | currency:'MXN':'symbol':'1.2-2' }}
+              </span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </main>
+</div>

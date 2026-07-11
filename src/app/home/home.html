@@ -1,0 +1,110 @@
+<div class="home-viewport">
+  <!-- Cabecera con fondo degradado -->
+  <header class="header-section" style="background-image: url('img/header.jpg');">
+    <!-- Barra superior de iconos del sistema -->
+    <div class="top-nav-icons">
+      <div class="icon-wrapper">
+        <img ngSrc="img/icon_Home.png" width="28" height="28" alt="Inicio" priority>
+      </div>
+      <div class="right-icons">
+        <div class="icon-wrapper">
+          <img ngSrc="img/icon_Oportunidades.png" width="28" height="28" alt="Oportunidades" priority>
+        </div>
+        <!-- Cerrar Sesión en icono de configuración -->
+        <div class="icon-wrapper ms-3" (click)="cerrarSesion()" role="button" tabindex="0" (keydown.enter)="cerrarSesion()" style="cursor: pointer;" title="Cerrar Sesión">
+          <img ngSrc="img/icon_Settings.png" width="28" height="28" alt="Cerrar Sesión" priority>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mensaje de bienvenida con acentos de color personalizados -->
+    <div class="welcome-container">
+      <h1 class="welcome-text">
+        <span class="purple-accent">Bienvenido,</span>
+        <br>
+        <span class="orange-accent">{{ clienteNombre() }}</span>
+      </h1>
+    </div>
+  </header>
+
+  <!-- Tarjeta flotante de saldo disponible -->
+  <div class="saldo-card-container">
+    <div class="saldo-card">
+      <span class="saldo-label">Saldo disponible</span>
+      <span class="saldo-amount">{{ saldoDisponible() | currency:'MXN':'symbol':'1.2-2' }}</span>
+      <div class="saldo-account-number">
+        <span>Cuenta Clabe •••• 4321</span>
+        <span class="account-badge">Débito</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido principal con las acciones rápidas y servicios -->
+  <main class="content-section">
+    <!-- Botones de acciones principales (Transferir y Nuevo Contacto) -->
+    <section class="quick-actions-section">
+      <div class="quick-action-item" (click)="irATransferencia()" role="button" tabindex="0" (keydown.enter)="irATransferencia()">
+        <div class="action-icon-circle transfer-circle">
+          <img ngSrc="img/icon_Transferir.png" width="36" height="36" alt="Transferir">
+        </div>
+        <span class="action-label">Transferir</span>
+      </div>
+
+      <div class="quick-action-item" (click)="irANuevoContacto()" role="button" tabindex="0" (keydown.enter)="irANuevoContacto()">
+        <div class="action-icon-circle contact-circle">
+          <img ngSrc="img/icon_NuevoContacto.png" width="36" height="36" alt="Nuevo Contacto">
+        </div>
+        <span class="action-label">Nuevo Contacto</span>
+      </div>
+    </section>
+
+    <!-- Grilla de todos los servicios -->
+    <section class="services-section">
+      <h2 class="section-title">Todos los servicios</h2>
+      
+      <div class="services-grid">
+        <div class="service-card" (click)="irAMisTarjetas()" role="button" tabindex="0" (keydown.enter)="irAMisTarjetas()">
+          <div class="service-icon-bg">
+            <img ngSrc="img/icon_MisTarjetas.png" width="24" height="24" alt="Mis tarjetas">
+          </div>
+          <span class="service-name">Mis tarjetas</span>
+        </div>
+
+        <div class="service-card" (click)="irAMovimientos()" role="button" tabindex="0" (keydown.enter)="irAMovimientos()">
+          <div class="service-icon-bg">
+            <img ngSrc="img/icon_Movimientos.png" width="24" height="24" alt="Movimientos">
+          </div>
+          <span class="service-name">Movimientos</span>
+        </div>
+
+        <div class="service-card" (click)="irATransferencia()" role="button" tabindex="0" (keydown.enter)="irATransferencia()">
+          <div class="service-icon-bg transfer-service-bg">
+            <img ngSrc="img/icon_Transferir.png" width="24" height="24" alt="Transferir">
+          </div>
+          <span class="service-name">Transferir</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-bg">
+            <img ngSrc="img/icon_PagarTarjetaDeCredito.png" width="24" height="24" alt="Pagar Tarjeta">
+          </div>
+          <span class="service-name">Pagar Tarjeta</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-bg">
+            <img ngSrc="img/icon_Oportunidades.png" width="24" height="24" alt="Oportunidades">
+          </div>
+          <span class="service-name">Oportunidades</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-bg">
+            <img ngSrc="img/icon_Account.png" width="24" height="24" alt="Mi Cuenta">
+          </div>
+          <span class="service-name">Mi Cuenta</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

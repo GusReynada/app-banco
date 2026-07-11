@@ -1,0 +1,232 @@
+.monto-viewport {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Header */
+.header-section {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  padding: 16px 20px;
+  color: white;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+/* Content */
+.content-section {
+  flex: 1;
+  background-color: white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: -30px;
+  padding: 24px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Destinatario Card */
+.destinatario-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #f1f3f5;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.dest-avatar {
+  border-radius: 50%;
+  background-color: white;
+}
+
+.dest-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dest-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.dest-account {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Amount Input */
+.amount-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.currency-symbol {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-right: 4px;
+}
+
+.amount-input {
+  border: none;
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
+  width: 200px;
+  text-align: left;
+  outline: none;
+}
+
+.amount-input::placeholder {
+  color: #ccc;
+}
+
+/* Hide number arrows */
+.amount-input::-webkit-outer-spin-button,
+.amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Accounts Selection */
+.accounts-section {
+  margin-top: 30px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.account-option {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 1.5px solid #eee;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.account-option.selected {
+  border-color: #6a1b9a;
+  background-color: rgba(106, 27, 154, 0.03);
+}
+
+.account-icon-bg {
+  width: 40px;
+  height: 40px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.account-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-type {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.account-balance {
+  font-size: 13px;
+  color: #666;
+}
+
+.radio-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+}
+
+.account-option.selected .radio-indicator {
+  border-color: #6a1b9a;
+}
+
+.account-option.selected .radio-indicator::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #6a1b9a;
+  border-radius: 50%;
+}
+
+/* Button */
+.actions-wrapper {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(90deg, #6a1b9a 0%, #ff8f00 100%);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.continue-btn:disabled {
+  background: #ccc;
+  opacity: 0.7;
+}

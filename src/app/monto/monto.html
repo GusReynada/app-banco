@@ -1,0 +1,89 @@
+<div class="monto-viewport">
+  <!-- Cabecera -->
+  <header class="header-section" style="background-image: url('img/header.jpg');">
+    <div class="header-nav">
+      <button class="back-button" (click)="volver()" aria-label="Volver">
+        <img ngSrc="img/icon_Back.png" width="24" height="24" alt="Atrás" priority>
+      </button>
+      <h1 class="header-title">¿Cuánto vas a enviar?</h1>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main class="content-section">
+    <!-- Info del Destinatario -->
+    @if (contacto(); as dest) {
+      <div class="destinatario-card">
+        <img [ngSrc]="dest.imagen" width="48" height="48" [alt]="dest.nombre" class="dest-avatar">
+        <div class="dest-info">
+          <span class="dest-name">{{ dest.nombre }}</span>
+          <span class="dest-account">Cta. Clabe •••• {{ dest.digitos.slice(-4) }}</span>
+        </div>
+      </div>
+    }
+
+    <form [formGroup]="montoForm" (ngSubmit)="continuar()" class="monto-form">
+      <!-- Input de Monto -->
+      <div class="amount-container">
+        <span class="currency-symbol">$</span>
+        <input 
+          type="number" 
+          formControlName="monto" 
+          class="amount-input" 
+          placeholder="0.00"
+          step="0.01"
+          autoFocus
+        >
+      </div>
+      @if (montoInvalido) {
+        <p class="error-text text-center">{{ errorText }}</p>
+      }
+
+      <!-- Selección de Cuenta Origen -->
+      <div class="accounts-section">
+        <h2 class="section-title">Selecciona cuenta de origen</h2>
+        
+        <div 
+          class="account-option" 
+          [class.selected]="cuentaSeleccionada() === 'Débito'"
+          (click)="seleccionarCuenta('Débito')"
+          role="button"
+          tabindex="0"
+        >
+          <div class="account-icon-bg">
+            <img ngSrc="img/icon_Account.png" width="24" height="24" alt="Débito">
+          </div>
+          <div class="account-details">
+            <span class="account-type">Cuenta de Débito</span>
+            <span class="account-balance">Saldo disponible: {{ saldoDisponible() | currency:'MXN':'symbol':'1.2-2' }}</span>
+          </div>
+          <div class="radio-indicator"></div>
+        </div>
+
+        <div 
+          class="account-option" 
+          [class.selected]="cuentaSeleccionada() === 'Crédito'"
+          (click)="seleccionarCuenta('Crédito')"
+          role="button"
+          tabindex="0"
+        >
+          <div class="account-icon-bg">
+            <img ngSrc="img/icon_MisTarjetas.png" width="24" height="24" alt="Crédito">
+          </div>
+          <div class="account-details">
+            <span class="account-type">Tarjeta de Crédito</span>
+            <span class="account-balance">Línea disponible: $45,000.00</span>
+          </div>
+          <div class="radio-indicator"></div>
+        </div>
+      </div>
+
+      <!-- Botón Continuar -->
+      <div class="actions-wrapper">
+        <button type="submit" class="continue-btn" [disabled]="montoForm.invalid">
+          Continuar
+        </button>
+      </div>
+    </form>
+  </main>
+</div>

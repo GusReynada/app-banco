@@ -1,0 +1,258 @@
+.home-viewport {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc; /* Gris slate claro */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+
+/* Header degradado */
+.header-section {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  padding: 20px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Barra superior de iconos */
+.top-nav-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+}
+
+.ms-3 {
+  margin-left: 12px;
+}
+
+.icon-wrapper {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.icon-wrapper:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Contenedor del saludo de bienvenida */
+.welcome-container {
+  margin-top: auto;
+}
+
+.welcome-text {
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Colores de acento */
+.purple-accent {
+  color: #4c1d95; /* Morado púrpura oscuro de alto contraste */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.orange-accent {
+  color: #ea580c; /* Naranja/dorado brillante */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  font-weight: 900;
+}
+
+/* Tarjeta de Saldo */
+.saldo-card-container {
+  padding: 0 20px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 10;
+}
+
+.saldo-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 20px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.saldo-label {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.saldo-amount {
+  color: #0f172a;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.saldo-account-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.account-badge {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Sección de contenido */
+.content-section {
+  padding: 16px 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Acciones rápidas (Transferir, Nuevo Contacto) */
+.quick-actions-section {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 12px 0 24px;
+}
+
+.quick-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  outline: none;
+}
+
+.quick-action-item:active {
+  transform: scale(0.95);
+}
+
+.action-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s;
+}
+
+.transfer-circle {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5); /* Degradado Morado-Azul */
+}
+
+.contact-circle {
+  background: linear-gradient(135deg, #ea580c, #f97316); /* Degradado Naranja-Oro */
+}
+
+.action-label {
+  font-size: 12px;
+  color: #334155;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Todos los servicios */
+.services-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.section-title {
+  font-size: 15px;
+  color: #0f172a;
+  font-weight: 800;
+  margin: 0 0 12px;
+  letter-spacing: -0.2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-bottom: 20px;
+}
+
+.service-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.01);
+}
+
+.service-card:active {
+  transform: scale(0.95);
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.service-icon-bg {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.transfer-service-bg {
+  background: #f5f3ff;
+}
+
+.service-name {
+  font-size: 10px;
+  color: #475569;
+  font-weight: 700;
+  line-height: 1.25;
+}
