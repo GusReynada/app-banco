@@ -11,7 +11,7 @@
     <!-- Instrucciones -->
     <div class="instruction-section">
       <p class="instruction-title">Ingresa tu contraseña</p>
-      <p class="instruction-subtitle">Escribe tu PIN de seguridad de 4 dígitos</p>
+      <p class="instruction-subtitle">Pin: 1234</p>
     </div>
 
     <!-- Indicador de PIN (Círculos) -->
@@ -22,15 +22,15 @@
         <div class="pin-dot" [class.filled]="pin().length >= 3"></div>
         <div class="pin-dot" [class.filled]="pin().length >= 4"></div>
       </div>
-      
+
       <!-- Mensaje de Error o Cargando -->
       <div class="status-msg-container">
         @if (procesando()) {
-          <span class="loading-spinner">Verificando PIN...</span>
+        <span class="loading-spinner">Verificando PIN...</span>
         } @else if (errorMsg()) {
-          <span class="error-msg-text">{{ errorMsg() }}</span>
+        <span class="error-msg-text">{{ errorMsg() }}</span>
         } @else {
-          <span class="default-msg-text">PIN demo: 1234</span>
+        <span class="default-msg-text">PIN demo: 1234</span>
         }
       </div>
     </div>
@@ -40,15 +40,15 @@
       <button class="key-btn" (click)="presionarTecla('1')">1</button>
       <button class="key-btn" (click)="presionarTecla('2')">2</button>
       <button class="key-btn" (click)="presionarTecla('3')">3</button>
-      
+
       <button class="key-btn" (click)="presionarTecla('4')">4</button>
       <button class="key-btn" (click)="presionarTecla('5')">5</button>
       <button class="key-btn" (click)="presionarTecla('6')">6</button>
-      
+
       <button class="key-btn" (click)="presionarTecla('7')">7</button>
       <button class="key-btn" (click)="presionarTecla('8')">8</button>
       <button class="key-btn" (click)="presionarTecla('9')">9</button>
-      
+
       <button class="key-btn extra-btn" disabled></button>
       <button class="key-btn" (click)="presionarTecla('0')">0</button>
       <button class="key-btn extra-btn" (click)="borrarDigito()" aria-label="Borrar">
