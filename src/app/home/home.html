@@ -11,7 +11,8 @@
           <img ngSrc="img/icon_Oportunidades.png" width="28" height="28" alt="Oportunidades" priority>
         </div>
         <!-- Cerrar Sesión en icono de configuración -->
-        <div class="icon-wrapper ms-3" (click)="cerrarSesion()" role="button" tabindex="0" (keydown.enter)="cerrarSesion()" style="cursor: pointer;" title="Cerrar Sesión">
+        <div class="icon-wrapper ms-3" (click)="cerrarSesion()" role="button" tabindex="0"
+          (keydown.enter)="cerrarSesion()" style="cursor: pointer;" title="Cerrar Sesión">
           <img ngSrc="img/icon_Settings.png" width="28" height="28" alt="Cerrar Sesión" priority>
         </div>
       </div>
@@ -30,7 +31,7 @@
   <!-- Tarjeta flotante de saldo disponible -->
   <div class="saldo-card-container">
     <div class="saldo-card">
-      <span class="saldo-label">Saldo disponible</span>
+      <span class="saldo-label">Saldo disponibleeee</span>
       <span class="saldo-amount">{{ saldoDisponible() | currency:'MXN':'symbol':'1.2-2' }}</span>
       <div class="saldo-account-number">
         <span>Cuenta Clabe •••• 4321</span>
@@ -43,14 +44,16 @@
   <main class="content-section">
     <!-- Botones de acciones principales (Transferir y Nuevo Contacto) -->
     <section class="quick-actions-section">
-      <div class="quick-action-item" (click)="irATransferencia()" role="button" tabindex="0" (keydown.enter)="irATransferencia()">
+      <div class="quick-action-item" (click)="irATransferencia()" role="button" tabindex="0"
+        (keydown.enter)="irATransferencia()">
         <div class="action-icon-circle transfer-circle">
           <img ngSrc="img/icon_Transferir.png" width="36" height="36" alt="Transferir">
         </div>
         <span class="action-label">Transferir</span>
       </div>
 
-      <div class="quick-action-item" (click)="irANuevoContacto()" role="button" tabindex="0" (keydown.enter)="irANuevoContacto()">
+      <div class="quick-action-item" (click)="irANuevoContacto()" role="button" tabindex="0"
+        (keydown.enter)="irANuevoContacto()">
         <div class="action-icon-circle contact-circle">
           <img ngSrc="img/icon_NuevoContacto.png" width="36" height="36" alt="Nuevo Contacto">
         </div>
@@ -61,23 +64,26 @@
     <!-- Grilla de todos los servicios -->
     <section class="services-section">
       <h2 class="section-title">Todos los servicios</h2>
-      
+
       <div class="services-grid">
-        <div class="service-card" (click)="irAMisTarjetas()" role="button" tabindex="0" (keydown.enter)="irAMisTarjetas()">
+        <div class="service-card" (click)="irAMisTarjetas()" role="button" tabindex="0"
+          (keydown.enter)="irAMisTarjetas()">
           <div class="service-icon-bg">
             <img ngSrc="img/icon_MisTarjetas.png" width="24" height="24" alt="Mis tarjetas">
           </div>
           <span class="service-name">Mis tarjetas</span>
         </div>
 
-        <div class="service-card" (click)="irAMovimientos()" role="button" tabindex="0" (keydown.enter)="irAMovimientos()">
+        <div class="service-card" (click)="irAMovimientos()" role="button" tabindex="0"
+          (keydown.enter)="irAMovimientos()">
           <div class="service-icon-bg">
             <img ngSrc="img/icon_Movimientos.png" width="24" height="24" alt="Movimientos">
           </div>
           <span class="service-name">Movimientos</span>
         </div>
 
-        <div class="service-card" (click)="irATransferencia()" role="button" tabindex="0" (keydown.enter)="irATransferencia()">
+        <div class="service-card" (click)="irATransferencia()" role="button" tabindex="0"
+          (keydown.enter)="irATransferencia()">
           <div class="service-icon-bg transfer-service-bg">
             <img ngSrc="img/icon_Transferir.png" width="24" height="24" alt="Transferir">
           </div>
