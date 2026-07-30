@@ -1,0 +1,35 @@
+# Manual de Uso para el Cliente
+
+Bienvenido a tu aplicación de banca móvil. A continuación, te explicamos de forma sencilla cómo utilizar las principales funciones de la aplicación para gestionar tus cuentas y realizar operaciones de manera fácil y segura.
+
+---
+
+## 1. Iniciar Sesión (Acceso Seguro)
+Para ingresar a tu cuenta y proteger tu información financiera, debes iniciar sesión de la siguiente manera:
+*   **Ingreso con PIN**: La aplicación te mostrará un teclado numérico en pantalla. Ingresa tu código de seguridad personal de 4 dígitos.
+*   **Validación Automática**: En cuanto presiones el cuarto dígito, la aplicación validará tus datos inmediatamente.
+*   **Mensaje de Error**: Si te equivocas de clave, verás una advertencia. Simplemente vuelve a tocar los números para escribir tu PIN correcto y acceder al menú principal.
+
+---
+
+## 2. Ver tus Tarjetas (Consulta y Bloqueo)
+Desde esta sección puedes consultar y tener el control absoluto de tus tarjetas de débito y crédito:
+*   **Ver Datos Ocultos (Voltear Tarjeta)**: Al pulsar sobre cualquiera de tus tarjetas, esta dará una vuelta visual para mostrarte los datos del reverso, como el número completo y el código de seguridad (CVV).
+*   **Congelar y Descongelar Tarjeta**: Cada tarjeta cuenta con un botón para "congelarla" (bloquearla temporalmente) si no la encuentras o deseas evitar compras no autorizadas. Puedes desbloquearla en cualquier momento pulsando el mismo botón.
+
+---
+
+## 3. Hacer Transferencias (Enviar Dinero)
+Envía dinero a tus contactos guardados de forma rápida y en pocos pasos:
+*   **Paso 1: Seleccionar Destinatario**: Elige a la persona a la que deseas transferir desde tu lista de contactos habituales o frecuentes.
+*   **Paso 2: Datos de la Transferencia**: Selecciona de cuál de tus cuentas (Débito o Crédito) se retirará el dinero e introduce el monto exacto a enviar.
+*   **Paso 3: Confirmación**: Revisa el resumen de la operación con los datos del destinatario, el monto y el número de folio generado. Si todo es correcto, confirma para completar la transferencia. El dinero se descontará de tu saldo al instante.
+
+---
+
+## 4. Agregar Nuevo Contacto (Libreta de Direcciones)
+Guarda a nuevos destinatarios para no tener que volver a escribir sus datos cada vez que les envíes dinero:
+*   **Formulario de Registro**: Escribe el nombre de la persona y su número de tarjeta o cuenta de 16 dígitos.
+*   **Detección Automática**: A medida que escribes el número, la aplicación identificará automáticamente si la tarjeta es Visa o Mastercard según sus dígitos iniciales.
+*   **Formateo Inteligente**: El número se separará automáticamente en grupos de 4 dígitos para que te sea más fácil leerlo y verificar que no haya errores de escritura.
+*   **Acceso Directo**: Una vez guardado el contacto, podrás transferirle dinero directamente sin pasos adicionales.
